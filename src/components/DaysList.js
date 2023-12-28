@@ -10,24 +10,23 @@ import {
 import { TYPE_SINGLE_DATE, TYPE_RANGE, TYPE_MUTLI_DATE } from '../shared/constants';
 import handleKeyboardNavigation from '../shared/keyboardNavigation';
 import { useLocaleUtils, useLocaleLanguage } from '../shared/hooks';
-
 const DaysList = ({
   activeDate,
   value,
   monthChangeDirection,
   onSlideChange,
-  disabledDays,
-  onDisabledDayError,
+  disabledDays=[],
+  onDisabledDayError=()=>{},
   minimumDate,
   maximumDate,
-  onChange,
+  onChange=()=>{},
   locale,
-  calendarTodayClassName,
+  calendarTodayClassName='',
   calendarSelectedDayClassName,
-  calendarRangeStartClassName,
-  calendarRangeEndClassName,
-  calendarRangeBetweenClassName,
-  shouldHighlightWeekends,
+  calendarRangeStartClassName='',
+  calendarRangeEndClassName='',
+  calendarRangeBetweenClassName='',
+  shouldHighlightWeekends=false,
   isQuickSelectorOpen,
   customDaysClassName,
 }) => {
@@ -276,16 +275,6 @@ const DaysList = ({
   );
 };
 
-DaysList.defaultProps = {
-  onChange: () => {},
-  onDisabledDayError: () => {},
-  disabledDays: [],
-  calendarTodayClassName: '',
-  calendarSelectedDayClassName: '',
-  calendarRangeStartClassName: '',
-  calendarRangeBetweenClassName: '',
-  calendarRangeEndClassName: '',
-  shouldHighlightWeekends: false,
-};
+
 
 export default DaysList;
